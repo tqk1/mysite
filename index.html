@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elf Image Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        #result-image { margin-top: 20px; max-width: 512px; }
+    </style>
+</head>
+<body>
+    <h1>Generate an Elf Image</h1>
+    <form id="generate-form">
+        <input type="text" id="prompt" placeholder="Describe your elf" required>
+        <button type="submit">Generate</button>
+    </form>
+    <div id="result">
+        <img id="result-image" alt="Your generated elf will appear here" />
+    </div>
+    <script>
+        const form = document.getElementById('generate-form');
+        const img = document.getElementById('result-image');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const prompt = document.getElementById('prompt').value;
+            img.src = '';
+            const response = await fetch('/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt })
+            });
+            if (response.ok) {
+                const data = await response.json();
+                img.src = data.url;
+            } else {
+                const error = await response.json();
+                alert(error.error || 'An error occurred');
+            }
+        });
+    </script>
+</body>
+</html>
