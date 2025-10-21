@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Co‑MYAKU Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #fafafa;
+      color: #333;
+    }
+    h1 {
+      margin-top: 20px;
+      font-size: 1.5rem;
+    }
+    form {
+      margin: 20px auto;
+      display: inline-block;
+      text-align: left;
+    }
+    label {
+      display: inline-block;
+      width: 80px;
+      margin-top: 8px;
+    }
+    input, select, button {
+      margin-top: 4px;
+    }
+    #canvas-container {
+      margin: 20px auto;
+      width: 600px;
+      height: 600px;
+      border: 1px solid #ddd;
+      background: #ffffff;
+    }
+    canvas {
+      display: block;
+      margin: 0 auto;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Co‑MYAKU Generator</h1>
+  <p>非営利目的でご利用ください。テーマのキーワードに応じて「Lives」「Growth」「Evolution」の形を生成します。</p>
+  <form id="form">
+    <div>
+      <label for="theme">テーマ:</label>
+      <input type="text" id="theme" placeholder="例: smile">
+    </div>
+    <div>
+      <label for="idType">IDタイプ:</label>
+      <select id="idType">
+        <option value="lives">Lives</option>
+        <option value="growth">Growth</option>
+        <option value="evolution">Evolution</option>
+      </select>
+    </div>
+    <div>
+      <label for="color">色:</label>
+      <input type="color" id="color" value="#ff4d4d">
+    </div>
+    <div style="text-align:center;margin-top:12px;">
+      <button type="submit">生成</button>
+    </div>
+  </form>
+  <div id="canvas-container"></div>
+  <footer>Generated for non‑commercial personal use. This project is not affiliated with or endorsed by the 2025 Osaka Kansai Expo.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
